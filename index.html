@@ -120,7 +120,7 @@
                 </div>
               </div>
         </div>
-        <button>Descrargar CV <i class="fa-solid fa-download"></i>
+        <button>Descargar CV <i class="fa-solid fa-download"></i>
             <span class="overlay"></span>
         </button>
      </section>
@@ -347,11 +347,11 @@
                 <div class="fila">
                     <!-- formulario de contacto -->
                     <div class="col">
-                        <input type="text" placeholder="¿Tú nombre es?">
-                        <input type="text" placeholder="¿Tú número de teléfono?">
-                        <input type="text" placeholder="¿Tú correo?">
-                        <textarea name="" id="" cols="30" rows="10" placeholder="¿Como puedo ayudarte?"></textarea>
-                        <button>
+                        <input type="text" id="contactName" placeholder="¿Tú nombre es?">
+                        <input type="text" id="contactPhone" placeholder="¿Tú número de teléfono?">
+                        <input type="text" id="contactEmail" placeholder="¿Tú correo?">
+                        <textarea name="" id="contactMessage" cols="30" rows="10" placeholder="¿Como puedo ayudarte?"></textarea>
+                        <button id="sendMessageBtn">
                             Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
                             <span class="overlay"></span>
                         </button>
@@ -408,5 +408,17 @@
     </footer>
 
     <script src="script.js" crossorigin="anonymous"></script>
+    <!-- script para el formulario -->
+    <script>
+        const $form = document.querySelector('#form')
+
+        $form.addEventListener('submit', handleSubmit)
+
+        function handleSubmit(event){
+            event.preventDefault()
+            const form = new FormData($form)
+            console.log(form.get('name'))
+        }
+    </script>
       </body>
 </html>

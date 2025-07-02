@@ -38,3 +38,53 @@ function selecionar(){
     window.onscroll = function(){
         efectoHabilidades();
     }
+
+    //funcion para enviar formulario de contacto
+    function enviarMensaje(){
+        let nombre = document.getElementById("contactName").value;
+        let telefono = document.getElementById("contactPhone").value;
+        let correo = document.getElementById("contactEmail").value;
+        let mensaje = document.getElementById("contactMessage").value;
+
+        // Validacion basica
+        if(nombre === "" || telefono === "" || correo === "" || mensaje === ""){
+            alert("Por favor, rellena todos los campos del formulario.");
+            return;
+        }
+
+        // Validacion de correo electronico simple
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegex.test(correo)){
+            alert("Por favor, introduce una dirección de correo electrónico válida.");
+            return;
+        }
+
+        var subject = "Nuevo mensaje de contacto de " + nombre;
+        var body = "Nombre: " + nombre + "\n";
+        body += "Teléfono: " + telefono + "\n";
+        body += "Correo: " + correo + "\n";
+        body += "Mensaje: " + mensaje;
+
+        var mailtoLink = "mailto:elieergutierrez32@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+
+        window.location.href = mailtoLink;
+
+        // Limpiar formulario (opcional, ya que la pagina cambiara al cliente de correo)
+        document.getElementById("contactName").value = "";
+        document.getElementById("contactPhone").value = "";
+        document.getElementById("contactEmail").value = "";
+        document.getElementById("contactMessage").value = "";
+
+        alert("Serás redirigido a tu cliente de correo para enviar el mensaje. ¡Gracias por contactarme!");
+    }
+
+    // Event listener para el boton de enviar mensaje
+    // Asegurarse de que el DOM este completamente cargado antes de añadir el event listener
+    document.addEventListener('DOMContentLoaded', function() {
+        var botonEnviar = document.getElementById("sendMessageBtn");
+        if(botonEnviar){
+            botonEnviar.addEventListener("click", enviarMensaje);
+        } else {
+            console.error("El botón con ID 'sendMessageBtn' no fue encontrado.");
+        }
+    });
