@@ -61,9 +61,9 @@ function selecionar(){
 
         var subject = "Nuevo mensaje de contacto de " + nombre;
         var body = "Nombre: " + nombre + "\n";
-        body += "Teléfono: " + telefono + "\n";
-        body += "Correo: " + correo + "\n";
-        body += "Mensaje: " + mensaje;
+        //body += "Teléfono: " + telefono + "\n";//
+        //body += "Correo: " + correo + "\n";//
+        body += mensaje;
 
         var mailtoLink = "mailto:elieergutierrez32@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
         
@@ -71,9 +71,9 @@ function selecionar(){
         var whatsappPhoneNumber = "+584262505504"; // número proporcionado por el usuario
         var whatsappMessage = "Nuevo mensaje de contacto:\n";
         whatsappMessage += "Nombre: " + nombre + "\n";
-        whatsappMessage += "Teléfono: " + telefono + "\n"; // El usuario puede o no incluir su propio número aquí si lo desea
-        whatsappMessage += "Correo: " + correo + "\n";
-        whatsappMessage += "Mensaje: " + mensaje;
+        //whatsappMessage += "Teléfono: " + telefono + "\n"; // El usuario puede o no incluir su propio número aquí si lo desea//
+        //whatsappMessage += "Correo: " + correo + "\n";//
+        whatsappMessage += mensaje;
         var whatsappLink = "https://wa.me/" + whatsappPhoneNumber + "?text=" + encodeURIComponent(whatsappMessage);
 
         // Intentar abrir ambos
