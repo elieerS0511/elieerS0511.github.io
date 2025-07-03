@@ -66,25 +66,57 @@ function selecionar(){
         body += "Mensaje: " + mensaje;
 
         var mailtoLink = "mailto:elieergutierrez32@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        
+        // WhatsApp
+        var whatsappPhoneNumber = "+584262505504"; // número proporcionado por el usuario
+        var whatsappMessage = "Nuevo mensaje de contacto:\n";
+        whatsappMessage += "Nombre: " + nombre + "\n";
+        whatsappMessage += "Teléfono: " + telefono + "\n"; // El usuario puede o no incluir su propio número aquí si lo desea
+        whatsappMessage += "Correo: " + correo + "\n";
+        whatsappMessage += "Mensaje: " + mensaje;
+        var whatsappLink = "https://wa.me/" + whatsappPhoneNumber + "?text=" + encodeURIComponent(whatsappMessage);
 
-        window.location.href = mailtoLink;
+        // Intentar abrir ambos
+        let emailOpened = false;
+        try {
+            window.open(mailtoLink, '_self'); // Usar _self para intentar evitar problemas de bloqueo de pop-ups en algunos navegadores
+            emailOpened = true;
+        } catch (e) {
+            console.error("Error al intentar abrir mailto link:", e);
+            alert("No se pudo abrir el cliente de correo. Por favor, copia la información manualmente o intenta de nuevo.");
+        }
 
-        // Limpiar formulario (opcional, ya que la pagina cambiara al cliente de correo)
+        // Pequeña demora para WhatsApp para no sobrecargar al navegador con dos redirecciones inmediatas
+        // y dar tiempo a que el mailto se procese.
+        setTimeout(function() {
+            try {
+                window.open(whatsappLink, '_blank'); // Abrir WhatsApp en una nueva pestaña/app
+            } catch (e) {
+                console.error("Error al intentar abrir WhatsApp link:", e);
+                alert("No se pudo abrir WhatsApp. Asegúrate de tenerlo instalado o permite pop-ups para este sitio.");
+            }
+        }, 500);
+
+
+        // Limpiar formulario
         document.getElementById("contactName").value = "";
         document.getElementById("contactPhone").value = "";
         document.getElementById("contactEmail").value = "";
         document.getElementById("contactMessage").value = "";
 
-        alert("Serás redirigido a tu cliente de correo para enviar el mensaje. ¡Gracias por contactarme!");
+        if(emailOpened){
+            alert("Serás redirigido a tu cliente de correo y se intentará abrir WhatsApp. ¡Gracias por contactarme!");
+        } else {
+            alert("Se intentará abrir WhatsApp. Si el cliente de correo no se abrió, por favor verifica la configuración de tu navegador. ¡Gracias por contactarme!");
+        }
     }
 
     // Event listener para el boton de enviar mensaje
-    // Asegurarse de que el DOM este completamente cargado antes de añadir el event listener
-    document.addEventListener('DOMContentLoaded', function() {
-        var botonEnviar = document.getElementById("sendMessageBtn");
-        if(botonEnviar){
-            botonEnviar.addEventListener("click", enviarMensaje);
-        } else {
-            console.error("El botón con ID 'sendMessageBtn' no fue encontrado.");
-        }
-    });
+    var botonEnviar = document.getElementById("sendMessageBtn");
+    if(botonEnviar){
+        botonEnviar.addEventListener("click", enviarMensaje);
+    } else {
+        // Este console.error podría no ser visible si el script se carga antes de que el botón exista,
+        // pero lo dejamos por si acaso o para futuras depuraciones si el script se mueve de nuevo.
+        console.error("El botón con ID 'sendMessageBtn' no fue encontrado. Asegúrate de que el script se carga después del HTML del botón.");
+    }
