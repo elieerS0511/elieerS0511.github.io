@@ -120,3 +120,61 @@ function selecionar(){
         // pero lo dejamos por si acaso o para futuras depuraciones si el script se mueve de nuevo.
         console.error("El botón con ID 'sendMessageBtn' no fue encontrado. Asegúrate de que el script se carga después del HTML del botón.");
     }
+// --- LÓGICA DEL CARRUSEL ---
+
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.carousel-track');
+    // Verificamos si existe el carrusel antes de ejecutar el código
+    if (!track) return; 
+
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.btn-next');
+    const prevButton = document.querySelector('.btn-prev');
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    // Función para mover el slide
+    const moveToSlide = (index) => {
+        // Control de límites (ciclo infinito)
+        if (index < 0) {
+            index = slides.length - 1;
+        } else if (index >= slides.length) {
+            index = 0;
+        }
+        
+        // Mover el track usando translateX
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        currentIndex = index;
+    };
+
+    // Funciones para botones
+    const nextSlide = () => {
+        moveToSlide(currentIndex + 1);
+        resetAutoPlay();
+    };
+
+    const prevSlide = () => {
+        moveToSlide(currentIndex - 1);
+        resetAutoPlay();
+    };
+
+    // Event Listeners
+    if(nextButton) nextButton.addEventListener('click', nextSlide);
+    if(prevButton) prevButton.addEventListener('click', prevSlide);
+
+    // Auto-play (cambia cada 5 segundos)
+    const startAutoPlay = () => {
+        autoPlayInterval = setInterval(() => {
+            moveToSlide(currentIndex + 1);
+        }, 5000);
+    };
+
+    const resetAutoPlay = () => {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+    };
+
+    // Iniciar automáticamente
+    startAutoPlay();
+});
