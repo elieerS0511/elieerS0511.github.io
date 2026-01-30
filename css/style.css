@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 * {
-  box-sizing: border-box;
-  font-family: oswald, sans-serif;
-  margin: 0;
-  padding: 0; 
+    box-sizing: border-box;
+    font-family: oswald, sans-serif;
+    margin: 0;
+    padding: 0; 
 }
 html{
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 /*menu*/
 .container-header{
@@ -92,81 +92,81 @@ html{
 }
 /* From Uiverse.io by ahmed150up */ 
 .card {
-  display: flex;
-  height: 70px;
-  width: 270px;
+    display: flex;
+    height: 70px;
+    width: 270px;
 }
 
 .card svg {
-  position: absolute;
-  display: flex;
-  width: 60%;
-  height: 100%;
-  font-size: 24px;
-  font-weight: 700;
-  opacity: 1;
-  transition: opacity 0.25s;
-  z-index: 2;
-  cursor: pointer;
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+    cursor: pointer;
 }
 
 .card .social-link1,.card .social-link2,.card .social-link3,.card .social-link4 {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25%;
-  color: whitesmoke;
-  font-size: 24px;
-  text-decoration: none;
-  transition: 0.25s;
-  border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    color: whitesmoke;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+    border-radius: 50px;
 }
 
 .card svg {
-  transform: scale(1);
+    transform: scale(1);
 }
 
 .card .social-link1:hover {
-  background: #f09433;
-  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-
-  animation: bounce_613 0.4s linear;
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    
+    animation: bounce_613 0.4s linear;
 }
 
 .card .social-link2:hover {
-  background-color: #242c34;
-  animation: bounce_613 0.4s linear;
+    animation: bounce_613 0.4s linear;
+    background-color: #242c34;
 }
 
 .card .social-link3:hover {
-  background-color: #5865f2;
-  animation: bounce_613 0.4s linear;
+    animation: bounce_613 0.4s linear;
+    background-color: #5865f2;
 }
 
 .card .social-link4:hover {
-  background-color: #12a50b;
-  animation: bounce_613 0.4s linear;
+    animation: bounce_613 0.4s linear;
+    background-color: #12a50b;
 }
 
 @keyframes bounce_613 {
-  40% {
+    40% {
     transform: scale(1.4);
-  }
+    }
 
-  60% {
+    60% {
     transform: scale(0.8);
-  }
+    }
 
-  80% {
+    80% {
     transform: scale(1.2);
-  }
+    }
 
-  100% {
+    100% {
     transform: scale(1);
-  }
+    }
 }
 /*section about me*/
 .aboutme{
@@ -264,16 +264,16 @@ border-radius: 5px;
     color: #fff;
 }
 .aboutme button .overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #17c3b2;
-  z-index: -1;
-  transition: 1s;}
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #17c3b2;
+    z-index: -1;
+    transition: 1s;}
 .aboutme button:hover .overlay{
-  width: 100%;
+    width: 100%;
 }
 /*section skills*/
 .skills{
@@ -336,13 +336,22 @@ border-radius: 5px;
 }
 
 /*clases agregadas dinamicamente mediante js*/
- .skills .skill .html{
+.skills .skill .html{
     width: 0%;
     animation: 2s html forwards;
 }
 @keyframes html{
     0%{width: 0%;}
     100%{width: 50%;} 
+}  
+
+.skills .skill .python{
+    width: 0%;
+    animation: 2s python forwards;
+}
+@keyframes python{
+    0%{width: 0%;}
+    100%{width: 30%;} 
 }  
 
 .skills .skill .office{
@@ -632,16 +641,18 @@ border-radius: 5px;
     z-index: 10;
 }
 .contac button .overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #17c3b2;
-  z-index: -1;
-  transition: 1s;}
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #17c3b2;
+    z-index: -1;
+    transition: 1s;
+    }
 .contac button:hover .overlay{
-  width: 100%;}
+    width: 100%;
+}
 .contac .col .mapa{
     width: 100%;
 }
@@ -678,9 +689,9 @@ border-radius: 5px;
 }
 .footer .card{
     margin-bottom: 20px;
-  display: flex;
-  height: 70px;
-  width: 270px;
+    display: flex;
+    height: 70px;
+    width: 270px;
 }
 .footer .arriba{
     display: block;

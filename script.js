@@ -22,15 +22,16 @@ function selecionar(){
         if(distancia_skills >= 300){
             let habilidades= document.getElementsByClassName("progreso");
             habilidades[0].classList.add("html");
-            habilidades[1].classList.add("office");
-            habilidades[2].classList.add("linux");
-            habilidades[3].classList.add("windows");
-            habilidades[4].classList.add("mantenimiento");
-            habilidades[5].classList.add("comunicacion");
-            habilidades[6].classList.add("trabajo");
-            habilidades[7].classList.add("inteligencia");
-            habilidades[8].classList.add("dedicacion");
-            habilidades[9].classList.add("creatividad");
+            habilidades[1].classList.add("python");
+            habilidades[2].classList.add("office");
+            habilidades[3].classList.add("linux");
+            habilidades[4].classList.add("windows");
+            habilidades[5].classList.add("mantenimiento");
+            habilidades[6].classList.add("comunicacion");
+            habilidades[7].classList.add("trabajo");
+            habilidades[8].classList.add("inteligencia");
+            habilidades[9].classList.add("dedicacion");
+            habilidades[10].classList.add("creatividad");
         }
     }
     
