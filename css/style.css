@@ -1,13 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:wght@300;400;700&display=swap');
+
 * {
     box-sizing: border-box;
-    font-family: oswald, sans-serif;
+    /* Cambio global: Usar Roboto para texto general, mucho más legible */
+    font-family: 'Roboto', sans-serif; 
     margin: 0;
     padding: 0; 
 }
 html{
     scroll-behavior: smooth;
 }
+
+/* --- TITULOS GLOBALES (Mantener Oswald para impacto) --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px; /* Espacio elegante entre letras */
+}
+
 /*menu*/
 .container-header{
     background: #251485;
@@ -16,6 +25,7 @@ html{
     top: 0;
     left: 0;
     z-index: 99;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra suave */
 }
 .container-header header{
     max-width: 1100px;
@@ -23,24 +33,29 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px ;
+    padding: 10px 20px; /* Reduje un poco el padding vertical */
 } 
 .container-header header .logo a{
-    font-family: oswald, sans-serif;
-    font-size: 40px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px; /* Ajustado de 40px a 28px para elegancia */
     color: #17c3b2;
     text-decoration: none;
-    
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 .container-header header ul{
     display: flex;
     list-style: none;
 }
 .container-header header nav ul li a{
+    font-family: 'Oswald', sans-serif; /* Menu se mantiene en Oswald */
+    font-size: 16px; /* Tamaño estándar web */
+    text-transform: uppercase; /* Mayúsculas para estilo nav */
+    letter-spacing: 1px;
     color: white;
     margin: 0 15px;
-    padding: 3px;
-    transition: .5s;
+    padding: 5px 10px;
+    transition: .3s;
     text-decoration: none;
 }
 .container-header header nav ul li a:hover{
@@ -60,41 +75,47 @@ html{
 .inicio{
     background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)), url('../img/fondo.jpg');
     background-size: cover;
-    height: 150vh;
+    height: 100vh; /* Ajustado a 100vh para ocupar exactamente la pantalla */
     color: white;
     display: flex;
     align-items: center;
 }
 .inicio .container-banner{
     padding: 20px;
-    background-color: #1e2326;
-    max-width: 350px;
+    background-color: transparent; /* Quitamos fondo sólido para ver mejor el bg */
+    max-width: 500px; /* Un poco más de espacio */
     margin: auto;
     text-align: center;
     border-radius: 40px;   
 }
 .inicio .container-banner img{
     margin-top: 40px;
-    border: 10px solid #251485;
+    border: 8px solid #251485;
     display: block;
-    width: 80%;
+    width: 250px; /* Tamaño controlado */
     margin: auto;
-    border-radius: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(37, 20, 133, 0.5);
 }
 .inicio .container-banner h1{
-    margin-top: 40px;
-    font-size: 42px;
-    font-family: 'Oswald', sans-serif;
+    margin-top: 30px;
+    font-size: 55px; /* Grande pero controlado */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
 }
 .inicio .container-banner h2{
-    font-size: 15px;
-    font-weight: normal;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #ccc; /* Gris claro para subtítulo */
 }
 /* From Uiverse.io by ahmed150up */ 
 .card {
     display: flex;
     height: 70px;
     width: 270px;
+    margin: 20px auto 0 auto; /* Centrado */
 }
 
 .card svg {
@@ -172,59 +193,85 @@ html{
 .aboutme{
     background-color: #1e2326;
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px; /* Más padding arriba/abajo para aire */
 }
 .aboutme .container-aboutme{
-    max-width: 1100px;
+    max-width: 900px; /* Ancho de lectura más cómodo */
     margin: auto;
 }
 .aboutme h2{
-    font-size: 48px;
-    font-family: oswald, sans-serif;
+    font-size: 40px; /* Reducido de 48px */
     text-align: center;
-    padding: 20px 0;
-}
-.aboutme .container-aboutme p{
-    font-size: 30px;
-    line-height: 30px;
+    padding-bottom: 30px;
     margin-bottom: 20px;
+    position: relative;
+}
+.aboutme h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #17c3b2;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.aboutme .container-aboutme p{
+    font-size: 18px; /* IMPORTANTE: Reducido de 30px a 18px */
+    line-height: 1.8; /* Interlineado generoso para lectura */
+    margin-bottom: 20px;
+    color: #ddd; /* Blanco suave */
+    text-align: justify;
 }
 .aboutme .container-aboutme p span{
-color: #17c3b2;
-font-weight: bold;
+    color: #17c3b2;
+    font-weight: bold;
 }
 .aboutme .fila{
     display: flex;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
 }
 .aboutme .fila .col{
-    padding: 30px 20px;
+    padding: 0 20px;
     width: 50%;   
 }
 .aboutme .fila .col ul{
     list-style: none;
 }
 .aboutme .fila .col ul li{
-    margin: 12px 0;
+    margin: 15px 0;
+    font-size: 16px;
+    color: #ccc;
+    display: flex;
+    justify-content: space-between; /* Alineación limpia */
+    border-bottom: 1px solid #333; /* Línea separadora sutil */
+    padding-bottom: 10px;
 }
 .aboutme .fila .col ul li strong{
     display: inline-block;
     color: #17c3b2;
-    width: 130px;
+    font-weight: 500;
+    
 }
 .aboutme .fila .col ul li span{
 background-color: #17c3b2;
 padding: 3px 10px;
 font-weight: bold;
 border-radius: 5px;
+color: white;
 }
+
 .aboutme h3{
-    font-size: 30px;
-    font-family: oswald, sans-serif;
-    margin-bottom: 20px;
+    font-size: 24px; /* Tamaño ajustado */
+    margin-bottom: 25px;
+    color: white;
+    border-left: 4px solid #17c3b2;
+    padding-left: 10px;
 }
 .aboutme .fila .col .container-intereses{
     display: flex;
-    
     flex-wrap: wrap;
 }
 .aboutme .fila .col .container-intereses .interes{
@@ -232,7 +279,7 @@ border-radius: 5px;
     height: 100px;
     background-color: #333b41;
     border-radius: 10px;
-    margin: 0 25px 15px 0;
+    margin: 0 15px 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -240,7 +287,8 @@ border-radius: 5px;
     transition: .3s;
 }
 .aboutme .fila .col .container-intereses .interes:hover{
-    background-color: #251485;
+    background-color: #17c3b2; /* Color de acento al hover */
+    color: #1e2326;
 }
 .aboutme .fila .col .container-intereses .interes i{
     font-size: 30px;
@@ -249,15 +297,20 @@ border-radius: 5px;
 .aboutme button{
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid #17c3b2; /* Borde color tema */
     width: fit-content;
     display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
+    margin: 40px auto;
+    padding: 12px 30px;
     font-size: 16px;
+    font-weight: bold;
     color: #fff;
     position: relative;
     z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Oswald', sans-serif;
+    transition: 0.5s;
 }
 .aboutme button a{
     text-decoration: none;
@@ -271,49 +324,51 @@ border-radius: 5px;
     height: 100%;
     background-color: #17c3b2;
     z-index: -1;
-    transition: 1s;}
+    transition: 0.5s;
+}
 .aboutme button:hover .overlay{
     width: 100%;
 }
 /*section skills*/
 .skills{
-    background-color: #333b41;
+    background-color: #252a2e; /* Fondo ligeramente diferente para contraste */
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px;
 }
 .skills .container-skills{
     max-width: 1100px;
     margin: auto;
 }
 .skills h2{
-    font-size: 48px;
-    font-family: oswald, sans-serif;
+    font-size: 40px;
     text-align: center;
-    padding: 20px 0;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
 }
 .skills .fila{
     display: flex;
+    gap: 40px; /* Espacio entre columnas */
 }
 .skills .fila .col{
     width: 50%;
-    padding: 0 20px;
 }
 .skills .fila.col h3{
-    font-size: 30px;
-    font-family: oswald, sans-serif;
+    font-size: 24px;
     margin-bottom: 25px;
 }
 .skills .skill > span{
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 16px;
     display: block;
     margin-bottom: 10px;
 }
 .skills .skill .bar-skill{
     height: 8px;
-    width: 80%;
-    background-color: #1e2326;
+    width: 100%;
+    background-color: #15191b;
     position: relative;
     margin-bottom: 30px;
+    border-radius: 4px;
 }
 .skills .skill .progreso{
     background-color: #17c3b2;
@@ -321,18 +376,21 @@ border-radius: 5px;
     top: 0;
     left: 0;
     height: 8px;
+    border-radius: 4px;
 }
 .skills .skill .bar-skill span{
     position: absolute;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     background-color: #17c3b2;
-    border-radius: 50px;
-    line-height: 40px;
+    border-radius: 50%;
+    line-height: 30px;
     text-align: center;
-    top: -17px;
+    top: -12px; /* Ajuste fino */
     right: -15px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 /*clases agregadas dinamicamente mediante js*/
@@ -430,61 +488,71 @@ border-radius: 5px;
 .cv{
     background-color: #1e2326;
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px;
 }
 .cv .container-cv{
     max-width: 1100px;
     margin: auto;
 }
 .cv h2{
-    font-size: 48px;
-    font-family: oswald, sans-serif;
+    font-size: 40px;
     text-align: center;
-    padding: 20px 0;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
 }
 .cv .fila{
     display: flex; 
     justify-content: space-between;  
 }
 .cv .fila .col{
-    width: 49%;
-    padding: 0 20px;
+    width: 48%; /* Espacio entre las dos columnas principales */
 }
 .cv .fila .col h3{
-    font-size: 30px;
-    font-family: oswald, sans-serif;
+    font-size: 28px;
     margin-bottom: 25px;
+    color: #17c3b2;
 }
 .cv .fila .izquierda{
-    border-right: 2px solid #17c3b2;
+    border-right: 2px solid #333; /* Color de borde más sutil */
 }
 .cv .fila .derecha{
-    border-left: 2px solid #17c3b2;
+    border-left: 2px solid #333;
 }
 .cv .fila .item{
     padding: 25px;
     margin-bottom: 30px;
-    background-color: #333b41;
+    background-color: #2a3035; /* Fondo un poco más claro que el body */
     position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.cv .fila .item:hover{
+    transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
 }
 .cv .fila .item h4{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
 }
 .cv .fila .item .casa{
     color: #17c3b2;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
     display: block;
+    text-transform: uppercase;
 }
 .cv .fila .item .fecha{
     display: block;
-    color: #17c3b2;
+    color: #aaa;
     margin-bottom: 10px;
+    font-size: 14px;
 }
 .cv .fila .item p{
-    line-height: 24px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #ddd;
 }
 .cv .fila .izq{
     border-right: 2px solid #17c3b2;
@@ -497,10 +565,10 @@ border-radius: 5px;
 .cv .fila .item .containeri{
     height: 2px;
     background-color: #17c3b2;
-    width: 47px;
+    width: 28px;
     position: absolute;
     top: 50%;
-    right: -47px;
+    right: -29px;
     z-index: 5;
 }
 .cv .fila .item .containeri .circuloi{
@@ -512,15 +580,16 @@ border-radius: 5px;
     float: right;
     position: relative;
     bottom: 4px;
+    border: 2px solid #1e2326; /* Anillo para resaltar el punto */
 }
 
 .cv .fila .item .containerd{
     height: 2px;
     background-color: #17c3b2;
-    width: 47px;
+    width: 28px;
     position: absolute;
     top: 50%;
-    left: -47px;
+    left: -28px;
     z-index: 5;
 }
 .cv .fila .item .containerd .circulod{
@@ -532,22 +601,23 @@ border-radius: 5px;
     float: left;
     position: relative;
     bottom: 4px;
+    border: 2px solid #1e2326;
 }
 /*section porfolio*/
 .portfolio{
-    background-color: #333b41;
+    background-color: #252a2e;
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px;
 }
 .portfolio .container-porfolio{
     max-width: 1100px;
     margin: auto;
 }
 .portfolio h2{
-    font-size: 48px;
-    font-family: oswald, sans-serif;
+    font-size: 40px;
     text-align: center;
-    padding: 20px 0;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
 }
 .portfolio .galeria{
     display: flex;
@@ -596,20 +666,21 @@ border-radius: 5px;
     background-image: url('../img/contact_bg.png');
     background-color: #1e2326;
     color: white;
-    padding: 50px 0;   
+    padding: 80px 0;   
 }
 .contac .container-contac{
     max-width: 1100px;
     margin: auto;
 }
 .contac h2{
-    font-size: 48px;
-    font-family: oswald, sans-serif;
+    font-size: 40px;
     text-align: center;
-    padding: 20px 0;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
 }
 .contac .fila{
     display: flex;
+    gap: 30px;
 }
 .contac .col{
     width: 50%;
@@ -619,26 +690,35 @@ border-radius: 5px;
 .contac .col input, .contac .col textarea{
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 15px; /* Más padding interno */
     border-radius: 5px;
-    border: none;
+    border: 1px solid #333;
     margin-bottom: 20px;
-    background-color: #333b41;
+    background-color: #2a3035;
     color: white;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
 }
+.contac .col input:focus, .contac .col textarea:focus{
+    outline: none;
+    border-color: #17c3b2;
+}
+
 .contac button{    
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid #17c3b2;
     width: fit-content;
     display: block;
     margin: 20px auto;
-    padding: 10px 20px;
+    padding: 12px 30px;
     font-size: 16px;
     color: #fff;
     position: relative;
     z-index: 10;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
 }
 .contac button .overlay{
     position: absolute;
@@ -648,34 +728,43 @@ border-radius: 5px;
     height: 100%;
     background-color: #17c3b2;
     z-index: -1;
-    transition: 1s;
+    transition: 0.5s;
     }
 .contac button:hover .overlay{
     width: 100%;
 }
 .contac .col .mapa{
     width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .contac .col .info{
     position: absolute;
     top: 40%;
-    background-color: #333b41;
-    padding: 20px;
+    background-color: rgba(30, 35, 38, 0.95); /* Fondo un poco más transparente */
+    padding: 25px;
     max-width: 350px;
     left: 50%;
     transform: translate(-50%, -50%); 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 .contac .col .info ul{
     list-style: none;
+}
+.contac .col .info ul li{
+    margin-bottom: 15px;
+    font-size: 15px;
 }
 .contac .col .info ul li i{
     color: #17c3b2;
     display: inline-block;
     margin-right: 20px;
+    font-size: 18px;
 }
 /*section footer*/
 .footer{
-    background-color: #333b41;
+    background-color: #15191b;
     color: white;
     padding: 50px 0 30px 0;
     text-align: center;
@@ -917,11 +1006,11 @@ img {
         border-width: 5px;
     }
     .inicio .container-banner h1{
-        font-size: 28px; /* Reducir tamaño de fuente */
+        font-size: 38px; /* Reducir tamaño de fuente */
         margin-top: 20px;
     }
     .inicio .container-banner h2{
-        font-size: 13px; /* Reducir tamaño de fuente */
+        font-size: 16px; /* Reducir tamaño de fuente */
     }
     .card {
         width: 100%; /* Hacer que los iconos sociales ocupen todo el ancho */
@@ -956,7 +1045,7 @@ img {
     }
 
     .skills h2, .cv h2, .portfolio h2, .contac h2 {
-        font-size: 36px; /* Reducir tamaño de títulos de sección */
+        font-size: 32px; /* Reducir tamaño de títulos de sección */
     }
     .skills .fila .col{
         width: 100%; /* Asegurar que las columnas ocupen todo el ancho */
@@ -1031,7 +1120,7 @@ img {
 /* Ajustes adicionales para pantallas muy pequeñas (ej. menos de 480px) */
 @media screen and (max-width: 480px) {
     .container-header header .logo a{
-        font-size: 30px; /* Reducir tamaño del logo */
+        font-size: 24px; /* Reducir tamaño del logo */
     }
     .nav-responsive{
         padding: 3px 8px;
@@ -1045,18 +1134,18 @@ img {
     }
 
     .inicio .container-banner h1{
-        font-size: 24px;
+        font-size: 28px;
     }
     .inicio .container-banner h2{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .aboutme h2, .skills h2, .cv h2, .portfolio h2, .contac h2 {
-        font-size: 30px; /* Títulos de sección aún más pequeños */
+        font-size: 28px; /* Títulos de sección aún más pequeños */
     }
     .aboutme .container-aboutme p{
         font-size: 14px;
-        line-height: 20px;
+        line-height: 1.6;
     }
     .aboutme .fila .col ul li strong{
         display: block; /* Hacer que el strong ocupe toda la línea */
@@ -1079,10 +1168,10 @@ img {
     }
     .skills .skill .bar-skill span{
         right: -5px; /* Ajustar posición del span de porcentaje para que no se salga tanto */
-        font-size: 12px; /* Reducir un poco el tamaño de fuente del porcentaje */
-        width: 35px; /* Ajustar ancho y alto */
-        height: 35px;
-        line-height: 35px;
-        top: -14px;
+        font-size: 11px; /* Reducir un poco el tamaño de fuente del porcentaje */
+        width: 30px; /* Ajustar ancho y alto */
+        height: 30px;
+        line-height: 30px;
+        top: -10px;
     }
 }
