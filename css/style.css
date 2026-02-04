@@ -934,6 +934,16 @@ img {
         padding: 10px 0;
     }
     
+    .aboutme .fila{
+        flex-direction: column;
+        align-items: center;
+    }
+    .aboutme .fila .col{
+        width: 100%;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+    
     .skills .fila{
         flex-direction: column;
         align-items: center;
@@ -1147,8 +1157,12 @@ img {
         font-size: 14px;
         line-height: 1.6;
     }
+    .aboutme .fila .col ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     .aboutme .fila .col ul li strong{
-        display: block; /* Hacer que el strong ocupe toda la línea */
+        display: block;
         margin-bottom: 5px;
     }
 
